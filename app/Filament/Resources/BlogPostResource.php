@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class BlogPostResource extends Resource
 {
@@ -32,11 +33,11 @@ class BlogPostResource extends Resource
                     ->schema([
                         Forms\Components\Select::make('user_id')
                             ->label('Author')
-                            ->relationship('user', 'name')
+                            ->relationship('author', 'name')
                             ->required()
                             ->searchable()
                             ->preload()
-                            ->default(auth()->id()),
+                            ->default(fn() => Auth::id()),
 
                         Forms\Components\Select::make('category_id')
                             ->label('Category')
@@ -167,7 +168,7 @@ class BlogPostResource extends Resource
                     ->weight('medium')
                     ->limit(40),
 
-                Tables\Columns\TextColumn::make('user.name')
+                Tables\Columns\TextColumn::make('author.name')
                     ->label('Author')
                     ->sortable(),
 
@@ -211,9 +212,9 @@ class BlogPostResource extends Resource
                     ->relationship('category', 'name')
                     ->preload(),
 
-                Tables\Filters\SelectFilter::make('user')
+                Tables\Filters\SelectFilter::make('author')
                     ->label('Author')
-                    ->relationship('user', 'name')
+                    ->relationship('author', 'name')
                     ->preload(),
             ])
             ->actions([

@@ -6,18 +6,7 @@
 
 @section('content')
 <!-- ====== Header ======  -->
-<section class="header-contact">
-    <div class="v-middle">
-        <div class="container">
-            <div class="row">
-                <div class="caption">
-                    <h1>Contact</h1>
-                    <span>Let's work together</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <!-- ====== End Header ======  -->
 
 <!-- ====== Contact Section ======  -->
@@ -36,7 +25,11 @@
                         <div class="item">
                             <span class="icon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
                             <h6>Address</h6>
+                            @if($profile?->address)
+                            <p>{{ $profile->address }}</p>
+                            @else
                             <p>Your Address Here<br>City, Country</p>
+                            @endif
                         </div>
                     </div>
 
@@ -44,7 +37,7 @@
                         <div class="item">
                             <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                             <h6>Email</h6>
-                            <p>your.email@example.com</p>
+                            <p>{{ $profile?->user?->email ?: 'your.email@example.com' }}</p>
                         </div>
                     </div>
 
@@ -52,7 +45,7 @@
                         <div class="item">
                             <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
                             <h6>Phone</h6>
-                            <p>+1 234 567 8900</p>
+                            <p>{{ $profile?->phone ?: '+1 234 567 8900' }}</p>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -130,22 +123,15 @@
                 <!-- Social Links -->
                 <div class="social-links text-center mt-50">
                     <h6>Follow Me</h6>
+                    <br />
                     <div class="social-icon">
-                        <a href="#0" target="_blank">
-                            <span><i class="fa fa-facebook" aria-hidden="true"></i></span>
-                        </a>
-                        <a href="#0" target="_blank">
-                            <span><i class="fa fa-twitter" aria-hidden="true"></i></span>
-                        </a>
-                        <a href="#0" target="_blank">
-                            <span><i class="fa fa-linkedin" aria-hidden="true"></i></span>
-                        </a>
-                        <a href="#0" target="_blank">
-                            <span><i class="fa fa-github" aria-hidden="true"></i></span>
-                        </a>
-                        <a href="#0" target="_blank">
-                            <span><i class="fa fa-youtube" aria-hidden="true"></i></span>
-                        </a>
+                        @if($profile?->social_links)
+                        @foreach($profile->social_links as $social)
+                        <a href="{{ $social['url'] }}" target="_blank">
+                            <span><i class="{{ $social['icon'] }} fa-2x" aria-hidden="true"></i></span>
+                        </a> &nbsp;
+                        @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

@@ -23,6 +23,7 @@ final class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProjectSeeder::class,
             ReferenceSeeder::class,
+            BlogPostSeeder::class,
         ]);
 
         // Uncomment to create test users

@@ -29,7 +29,7 @@ final class ProfileSeeder extends Seeder
                     'image' => '/template/images/hero.jpg',
                     'cv_file' => '/template/docs/cv.pdf',
                     'phone' => '+1 (555) 123-4567',
-                    'address' => 'New York, NY, USA',
+                    'address' => '123 Tech Street, New York, NY 10001, USA',
                     'social_links' => [
                         [
                             'platform' => 'Facebook',
@@ -50,6 +50,16 @@ final class ProfileSeeder extends Seeder
                             'platform' => 'GitHub',
                             'url' => 'https://github.com/johndoe',
                             'icon' => 'fab fa-github'
+                        ],
+                        [
+                            'platform' => 'YouTube',
+                            'url' => 'https://youtube.com/@johndoe',
+                            'icon' => 'fab fa-youtube'
+                        ],
+                        [
+                            'platform' => 'Instagram',
+                            'url' => 'https://instagram.com/johndoe',
+                            'icon' => 'fab fa-instagram'
                         ]
                     ],
                     'animated_texts' => [

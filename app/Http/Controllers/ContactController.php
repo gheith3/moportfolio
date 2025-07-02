@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -15,7 +16,9 @@ final class ContactController extends Controller
      */
     public function index(): View
     {
-        return view('pages.contact');
+        $profile = Profile::with('user')->first();
+
+        return view('pages.contact', compact('profile'));
     }
 
     /**
