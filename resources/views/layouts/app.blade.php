@@ -38,8 +38,7 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="https://cdn.jsdelivr.net/npm/et-line@1.0.1/style.min.css" rel="stylesheet">
-
+  
     <!-- Core Style Css -->
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
 
