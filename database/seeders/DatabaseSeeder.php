@@ -22,7 +22,7 @@ final class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             CategorySeeder::class,
             ProjectSeeder::class,
-            ClientSeeder::class,
+            ReferenceSeeder::class,
         ]);
 
         // Uncomment to create test users

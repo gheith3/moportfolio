@@ -40,7 +40,7 @@ This project converts a static portfolio template into a dynamic Laravel applica
 -   [x] Skills section component (integrated in AboutSection)
 -   [ ] Blog section component
 -   [x] Contact form component
--   [x] Testimonials/Clients component
+-   [x] References component
 
 ### Phase 4: Filament Admin Panel
 
@@ -87,10 +87,11 @@ Based on the template analysis, the portfolio contains:
 -   Magnific popup for image viewing
 -   Project categories and links
 
-### 5. **Clients Section**
+### 5. **References Section**
 
--   Logo carousel
--   Owl Carousel integration
+-   Professional references
+-   Contact information display
+-   Name, email, phone, and slogan
 
 ### 6. **Blog Section**
 
@@ -135,8 +136,8 @@ BlogPost
 ├── id, title, slug, content, excerpt, image
 ├── category_id, is_published, created_at
 
-Client
-├── id, name, logo, website_url, order, is_active
+Reference
+├── id, name, email, phone, slogan, order, is_active
 
 Contact
 ├── id, name, email, message, created_at, is_read
@@ -180,7 +181,7 @@ php artisan make:model Skill -mfs
 php artisan make:model Project -mfs
 php artisan make:model Category -mfs
 php artisan make:model BlogPost -mfs
-php artisan make:model Client -mfs
+php artisan make:model Reference -mfs
 php artisan make:model Contact -mfs
 php artisan make:model Setting -mfs
 ```
@@ -195,7 +196,7 @@ php artisan make:filament-resource Skill --generate --view
 php artisan make:filament-resource Project --generate --view
 php artisan make:filament-resource Category --generate --view
 php artisan make:filament-resource BlogPost --generate --view
-php artisan make:filament-resource Client --generate --view
+php artisan make:filament-resource Reference --generate --view
 php artisan make:filament-resource Contact --generate --view
 php artisan make:filament-resource Setting --generate --view
 

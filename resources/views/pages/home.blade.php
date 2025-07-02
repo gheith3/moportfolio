@@ -17,8 +17,8 @@
 <!-- ====== Portfolio Section ======  -->
 <livewire:portfolio-section />
 
-<!-- ====== Clients Section ======  -->
-<livewire:clients-section />
+<!-- ====== References Section ======  -->
+<livewire:references-section />
 
 <!-- ====== Contact Section ======  -->
 <livewire:contact-section />

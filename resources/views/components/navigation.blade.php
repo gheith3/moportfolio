@@ -23,7 +23,7 @@
                 <li><a href="{{ route('home') }}#about" data-scroll-nav="1">About</a></li>
                 <li><a href="{{ route('home') }}#services" data-scroll-nav="2">Services</a></li>
                 <li><a href="{{ route('home') }}#portfolio" data-scroll-nav="3">Works</a></li>
-                <li><a href="{{ route('home') }}#clients" data-scroll-nav="4">Clients</a></li>
+                <li><a href="{{ route('home') }}#references" data-scroll-nav="4">References</a></li>
                 <li><a href="{{ route('blog') }}" class="{{ request()->routeIs('blog*') ? 'active' : '' }}">Blog</a>
                 </li>
                 <li><a href="{{ route('contact') }}"
