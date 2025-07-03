@@ -8,8 +8,9 @@ services:
         volumes:
             # Database persistence
             - ./database:/var/www/html/database
-            # Storage persistence (only public uploads)
-            - ./storage:/var/www/html/storage:rw
+            # Storage persistence (specific directories only)
+            - ./storage/app:/var/www/html/storage/app
+            - ./storage/logs:/var/www/html/storage/logs
         environment:
             # Application Configuration
             - APP_NAME=Mohammed Alramadani Portfolio
@@ -25,14 +26,41 @@ services:
 
             # Cache Configuration
             - CACHE_DRIVER=file
+            - CACHE_STORE=file
             - SESSION_DRIVER=file
+            - SESSION_LIFETIME=120
             - QUEUE_CONNECTION=sync
+
+            # Additional Laravel Configuration
+            - LOG_CHANNEL=stack
+            - LOG_DEPRECATIONS_CHANNEL=null
+            - LOG_LEVEL=error
 
             # Filament Configuration
             - FILAMENT_FILESYSTEM_DISK=public
 
         restart: unless-stopped
         container_name: moportfolio
+        command: >
+            sh -c "
+            echo '🚀 Starting Laravel Portfolio Application...' &&
+            echo '🔐 Setting permissions...' &&
+            chown -R www-data:www-data /var/www/html/storage /var/www/html/database &&
+            chmod -R 775 /var/www/html/storage /var/www/html/database &&
+            echo '🗄️ Running database migrations...' &&
+            php artisan migrate --force &&
+            echo '🌱 Seeding database...' &&
+            php artisan db:seed --force &&
+            echo '⚡ Optimizing application...' &&
+            php artisan config:cache &&
+            php artisan route:cache &&
+            php artisan view:cache &&
+            echo '🔗 Creating storage symlink...' &&
+            php artisan storage:link &&
+            echo '✅ Application initialized successfully!' &&
+            echo '🌐 Starting Apache server...' &&
+            apache2-foreground
+            "
         healthcheck:
             test: ["CMD", "curl", "-f", "http://localhost/"]
             interval: 30s
