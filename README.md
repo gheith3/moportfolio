@@ -45,7 +45,7 @@ A modern, responsive portfolio website built with Laravel 11, Filament Admin Pan
 
 1. **Clone & Deploy**:
 
-    ```bash
+```bash
     git clone <your-repo-url>
     cd moportfolio
     ./deploy.sh
