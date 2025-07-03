@@ -2,19 +2,40 @@ version: "3.8"
 
 services:
     app:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        image: gheith3/moportfolio:latest
         ports:
-            - "80:80"
+            - "8091:80"
         volumes:
+            # Database persistence
             - ./database:/var/www/html/database
-            - ./storage/app/public:/var/www/html/storage/app/public
+            # Storage persistence (only public uploads)
+            - ./storage:/var/www/html/storage:rw
         environment:
+            # Application Configuration
+            - APP_NAME=Mohammed Alramadani Portfolio
             - APP_ENV=production
             - APP_DEBUG=false
-            - APP_KEY=base64:eepCFlVMxVVOFbvZdC3Kn6bRp0pTINzdZqygrgXa4HA=
+            - APP_URL=http://localhost
+            # Security: Generate new key or use environment variable
+            - APP_KEY=base64:7bXO9JdQek0klLQTUBXYT0zhwGJIf5YUYkc5bXeftQU=
+
+            # Database Configuration
             - DB_CONNECTION=sqlite
             - DB_DATABASE=/var/www/html/database/database.sqlite
+
+            # Cache Configuration
+            - CACHE_DRIVER=file
+            - SESSION_DRIVER=file
+            - QUEUE_CONNECTION=sync
+
+            # Filament Configuration
+            - FILAMENT_FILESYSTEM_DISK=public
+
         restart: unless-stopped
         container_name: moportfolio
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost/"]
+            interval: 30s
+            timeout: 10s
+            retries: 3
+            start_period: 40s

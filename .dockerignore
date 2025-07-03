@@ -38,6 +38,7 @@ storage/logs/*
 # Build files
 /public/build
 /public/hot
+/public/storage
 
 # Testing
 tests/

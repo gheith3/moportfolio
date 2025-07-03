@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
+    libicu-dev \
+    libzip-dev \
     zip \
     unzip \
     sqlite3 \
@@ -22,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql pdo_sqlite mbstring exif pcntl bcmath gd
+RUN docker-php-ext-install pdo_mysql pdo_sqlite mbstring exif pcntl bcmath gd intl zip
 
 # Enable Apache modules
 RUN a2enmod rewrite headers
@@ -32,9 +34,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy existing application directory contents
 COPY . /var/www/html
-
-# Copy existing application directory permissions
-COPY --chown=www-data:www-data . /var/www/html
 
 # Install PHP dependencies
 RUN composer install --optimize-autoloader --no-dev
@@ -52,6 +51,9 @@ RUN chmod -R 775 /var/www/html/database
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Remove any existing storage symlink (if copied) and ensure it will be created properly
+RUN rm -f /var/www/html/public/storage
 
 # Configure Apache
 COPY docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
