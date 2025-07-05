@@ -258,7 +258,7 @@ use Illuminate\Support\Facades\Storage;
 
     .header-blog {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('{{ asset(' template/images/bg.jpg') }}');
+        url('{{ \Storage::url(' template/images/bg.jpg') }}');
         background-size: cover;
         background-position: center;
         min-height: 300px;

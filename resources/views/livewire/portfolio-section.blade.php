@@ -25,7 +25,7 @@
                 @foreach($this->getFilteredItems() as $project)
                 <div class="col-md-4 col-sm-6 items {{ $project->categories->pluck('slug')->implode(' ') }}">
                     <div class="item-img">
-                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}">
+                        <img src="{{ \Storage::url($project->image) }}" alt="{{ $project->title }}">
                         <div class="item-img-overlay">
                             <div class="overlay-info v-middle text-center">
                                 <h6 class="sm-titl">{{ $project->title }}</h6>
@@ -38,7 +38,7 @@
                                     </span>
                                     @endif
                                     <span class="icon link">
-                                        <a href="{{ asset($project->image) }}">
+                                        <a href="{{ \Storage::url($project->image) }}">
                                             <i class="fa fa-search-plus" aria-hidden="true"></i>
                                         </a>
                                     </span>

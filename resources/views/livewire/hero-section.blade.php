@@ -1,5 +1,5 @@
 <section id="home" class="header" data-scroll-index="0"
-    style="background-image: url({{ asset($profile->background_image ?? 'template/images/bg.jpg') }});"
+    style="background-image: url({{ \Storage::url($profile->background_image ?? 'template/images/bg.jpg') }});"
     data-stellar-background-ratio="0.8">
     <div class="v-middle">
         <div class="container">

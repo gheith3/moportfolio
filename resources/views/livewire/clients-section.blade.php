@@ -12,10 +12,10 @@
                 <div class="item">
                     @if($client->website)
                     <a href="{{ $client->website }}" target="_blank" rel="noopener">
-                        <img src="{{ asset($client->logo) }}" alt="{{ $client->name }}">
+                        <img src="{{ \Storage::url($client->logo) }}" alt="{{ $client->name }}">
                     </a>
                     @else
-                    <img src="{{ asset($client->logo) }}" alt="{{ $client->name }}">
+                    <img src="{{ \Storage::url($client->logo) }}" alt="{{ $client->name }}">
                     @endif
                 </div>
                 @endforeach

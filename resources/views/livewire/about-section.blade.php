@@ -4,7 +4,7 @@
             <!-- hero image -->
             <div class="col-md-5">
                 <div class="hero-img mb-30">
-                    <img src="{{ asset($profile->image ?? 'template/images/hero.jpg') }}"
+                    <img src="{{ \Storage::url($profile->image ?? 'template/images/hero.jpg') }}"
                         alt="{{ $profile->name ?? 'Profile Picture' }}">
                 </div>
             </div>
