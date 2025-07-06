@@ -9,27 +9,36 @@
             <div class="col-md-offset-1 col-md-10">
                 <!-- contact info -->
                 <div class="info text-center mb-50">
+                    @if($profile && $profile->phone)
                     <div class="col-md-4">
                         <div class="item">
                             <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
                             <h6>Phone</h6>
-                            <p>+1 (555) 123-4567</p>
+                            <p>{{ $profile->phone }}</p>
                         </div>
                     </div>
+                    @endif
+
+                    @if($profile && $profile->email)
                     <div class="col-md-4">
                         <div class="item">
                             <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                             <h6>Email</h6>
-                            <p>john@example.com</p>
+                            <p>{{ $profile->email }}</p>
                         </div>
                     </div>
+                    @endif
+
+                    @if($profile && $profile->address)
                     <div class="col-md-4">
                         <div class="item">
                             <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
                             <h6>Address</h6>
-                            <p>New York, NY, USA</p>
+                            <p>{{ $profile->address }}</p>
                         </div>
                     </div>
+                    @endif
+
                     <div class="clearfix"></div>
                 </div>
 

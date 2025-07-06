@@ -20,6 +20,9 @@
 <!-- ====== References Section ======  -->
 <livewire:references-section />
 
+<!-- ====== Blog Section ======  -->
+<livewire:blog-section />
+
 <!-- ====== Contact Section ======  -->
 <livewire:contact-section />
 @endsection

@@ -1,9 +1,9 @@
-<section id="portfolio" class="portfolio section-padding pb-70" data-scroll-index="3">
+<section id="works" class="portfolio section-padding pb-70" data-scroll-index="3">
     <div class="container">
         <div class="row">
             <!-- section heading -->
             <div class="section-head">
-                <h3>Portfolio.</h3>
+                <h3>Works.</h3>
             </div>
 
             <!-- filter links -->

@@ -8,7 +8,7 @@
                 <div class="caption">
                     <h5>{{ $profile->greeting ?? 'Hello' }}</h5>
                     <h1 class="cd-headline clip">
-                        <span class="blc">{{ $profile->greeting ?? 'Hello, I am' }} </span>
+                        {{-- <span class="blc">{{ $profile->greeting ?? 'Hello, I am' }} </span> --}}
                         <span class="cd-words-wrapper">
                             @if($profile->animated_texts)
                             @foreach($profile->animated_texts as $index => $text)

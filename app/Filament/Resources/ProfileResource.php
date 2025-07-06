@@ -94,6 +94,10 @@ class ProfileResource extends Resource
 
                 Forms\Components\Section::make('Contact Information')
                     ->schema([
+                        Forms\Components\TextInput::make('email')
+                            ->email()
+                            ->maxLength(255),
+
                         Forms\Components\TextInput::make('phone')
                             ->tel()
                             ->maxLength(255),
@@ -101,7 +105,7 @@ class ProfileResource extends Resource
                         Forms\Components\TextInput::make('address')
                             ->maxLength(255),
                     ])
-                    ->columns(2),
+                    ->columns(3),
 
                 Forms\Components\Section::make('Dynamic Content')
                     ->schema([
@@ -160,6 +164,10 @@ class ProfileResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('User')
                     ->sortable(),
+
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable()
+                    ->toggleable(),
 
                 Tables\Columns\TextColumn::make('phone')
                     ->searchable()

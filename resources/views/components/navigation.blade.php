@@ -18,16 +18,16 @@
         <div class="collapse navbar-collapse" id="nav-icon-collapse">
             <!-- links -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('home') }}" data-scroll-nav="0"
-                        class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
-                <li><a href="{{ route('home') }}#about" data-scroll-nav="1">About</a></li>
-                <li><a href="{{ route('home') }}#services" data-scroll-nav="2">Services</a></li>
-                <li><a href="{{ route('home') }}#portfolio" data-scroll-nav="3">Works</a></li>
-                <li><a href="{{ route('home') }}#references" data-scroll-nav="4">References</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('home') }}#about">About</a></li>
+                <li><a href="{{ route('home') }}#services">Services</a></li>
+                <li><a href="{{ route('home') }}#works">Works</a></li>
+                <li><a href="{{ route('home') }}#references">References</a></li>
                 <li><a href="{{ route('blog') }}" class="{{ request()->routeIs('blog*') ? 'active' : '' }}">Blog</a>
                 </li>
-                <li><a href="{{ route('contact') }}"
-                        class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
+                <li><a href="{{ route('home') }}#contact">Contact</a></li>
+                {{-- <li><a href="{{ route('contact') }}"
+                        class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li> --}}
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->

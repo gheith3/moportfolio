@@ -24,6 +24,7 @@ final class Profile extends Model
         'image',
         'cv_file',
         'phone',
+        'email',
         'address',
         'social_links',
         'animated_texts',

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Models\Contact;
+use App\Models\Profile;
 use Livewire\Component;
 
 final class ContactSection extends Component
@@ -14,24 +15,6 @@ final class ContactSection extends Component
     public string $message = '';
     public string $phone = '';
     public string $subject = '';
-
-    public array $contactInfo = [
-        [
-            'icon' => 'fa-location-arrow',
-            'title' => 'Address',
-            'content' => 'Your Address Here',
-        ],
-        [
-            'icon' => 'fa-envelope',
-            'title' => 'Email',
-            'content' => 'your.email@example.com',
-        ],
-        [
-            'icon' => 'fa-phone',
-            'title' => 'Phone',
-            'content' => '+1 234 567 8900',
-        ],
-    ];
 
     protected function rules(): array
     {
@@ -68,6 +51,10 @@ final class ContactSection extends Component
 
     public function render()
     {
-        return view('livewire.contact-section');
+        $profile = Profile::first();
+
+        return view('livewire.contact-section', [
+            'profile' => $profile,
+        ]);
     }
 }
