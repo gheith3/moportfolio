@@ -1,0 +1,63 @@
+🚀 Starting Mo Portfolio Backend...
+📁 Setting up storage directories...
+🔒 Setting permissions...
+📝 Creating .env file from environment variables...
+⏳ Waiting for MariaDB/MySQL connection...
+Connection to database (172.23.0.2) 3306 port [tcp/mysql] succeeded!
+✅ MariaDB/MySQL connection established
+🔗 Creating storage symlink...
+   INFO  The [public/storage] link has been connected to [storage/app/public].  
+🗄️ Running database migrations...
+   INFO  Preparing database.  
+  Creating migration table ...................................... 10.76ms DONE
+   INFO  Running migrations.  
+  0001_01_01_000000_create_users_table .......................... 36.82ms DONE
+  0001_01_01_000001_create_cache_table ........................... 8.74ms DONE
+  0001_01_01_000002_create_jobs_table ........................... 26.57ms DONE
+  2025_07_01_202351_create_profiles_table ....................... 21.75ms DONE
+  2025_07_01_202358_create_services_table ........................ 3.72ms DONE
+  2025_07_01_202405_create_skills_table ......................... 16.50ms DONE
+  2025_07_01_202411_create_projects_table ....................... 15.24ms DONE
+  2025_07_01_202415_create_categories_table ..................... 11.57ms DONE
+  2025_07_01_202425_create_blog_posts_table ..................... 41.19ms DONE
+  2025_07_01_202450_create_clients_table ......................... 4.63ms DONE
+  2025_07_01_202455_create_contacts_table ........................ 6.09ms DONE
+  2025_07_01_202500_create_settings_table ....................... 12.97ms DONE
+  2025_07_01_203030_create_category_project_table ............... 38.62ms DONE
+  2025_07_02_185040_create_references_table ...................... 3.82ms DONE
+  2025_07_05_214054_add_custom_fields_to_users_table ............. 5.99ms DONE
+  2025_07_05_214055_add_avatar_url_to_users_table ................ 5.97ms DONE
+  2025_07_06_121507_add_email_to_profiles_table .................. 8.57ms DONE
+                                                                                
+                           APPLICATION IN PRODUCTION.                           
+                                                                                
+   WARN  Command cancelled.  
+⚡ Optimizing application...
+   INFO  Configuration cache cleared successfully.  
+   INFO  Route cache cleared successfully.  
+   INFO  Compiled views cleared successfully.  
+   INFO  Application cache cleared successfully.  
+   INFO  Configuration cached successfully.  
+   INFO  Routes cached successfully.  
+   INFO  Blade templates cached successfully.  
+Blade icons manifest file generated successfully!
+✅ Laravel initialization complete!
+🎯 Ensuring supervisor log directory exists...
+📁 Ensuring nginx log directory exists...
+🎯 Starting services with supervisor...
+2026-01-29 08:46:27,064 INFO Set uid to user 0 succeeded
+2026-01-29 08:46:27,070 INFO RPC interface 'supervisor' initialized
+2026-01-29 08:46:27,070 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2026-01-29 08:46:27,070 INFO supervisord started with pid 1
+2026-01-29 08:46:28,073 INFO spawned: 'php-fpm' with pid 64
+2026-01-29 08:46:28,075 INFO spawned: 'nginx' with pid 65
+2026-01-29 08:46:28,077 INFO spawned: 'laravel-worker_00' with pid 66
+2026-01-29 08:46:28,080 INFO spawned: 'laravel-schedule' with pid 67
+2026-01-29 08:46:29,521 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:46:29,521 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:46:29,521 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:46:29,521 INFO success: laravel-schedule entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:46:29,521 INFO reaped unknown pid 69 (exit status 0)
+2026-01-29 08:47:29,424 INFO reaped unknown pid 101 (exit status 0)
+2026-01-29 08:48:29,427 INFO reaped unknown pid 126 (exit status 0)
+2026-01-29 08:49:29,375 INFO reaped unknown pid 145 (exit status 0)

@@ -98,7 +98,9 @@ php artisan storage:link --force 2>/dev/null || true
 if [ "$RUN_MIGRATIONS" = "true" ]; then
     echo "🗄️ Running database migrations..."
     php artisan migrate --force --no-interaction
-    php artisan db:seed --no-interaction || true
+
+    echo "🗄️ Running database seeding..."
+    php artisan db:seed --force --no-interaction || true
 fi
 
 # Clear and cache configuration (only if not already cached)
