@@ -1,0 +1,134 @@
+🚀 Starting Smart Meter Challenge Backend...
+⏳ Waiting for MariaDB/MySQL connection...
+Connection to database (172.23.0.3) 3306 port [tcp/mysql] succeeded!
+✅ MariaDB/MySQL connection established
+📝 Creating .env file from template...
+cp: can't stat '/var/www/html/.env.example': No such file or directory
+grep: /var/www/html/.env: No such file or directory
+🔑 Generating application key...
+In KeyGenerateCommand.php line 100:
+                                                                               
+  file_get_contents(/var/www/html/.env): Failed to open stream: No such file   
+  or directory                                                                 
+                                                                               
+📁 Setting up storage directories...
+🔒 Setting permissions...
+🔗 Creating storage symlink...
+   INFO  The [public/storage] link has been connected to [storage/app/public].  
+🗄️ Running database migrations...
+   INFO  Nothing to migrate.  
+                                                                                
+                           APPLICATION IN PRODUCTION.                           
+                                                                                
+   WARN  Command cancelled.  
+⚡ Optimizing application...
+   INFO  Configuration cache cleared successfully.  
+   INFO  Route cache cleared successfully.  
+   INFO  Compiled views cleared successfully.  
+In PhpRedisConnector.php line 80:
+                           
+  Class "Redis" not found  
+                           
+   INFO  Configuration cached successfully.  
+   INFO  Routes cached successfully.  
+   INFO  Blade templates cached successfully.  
+Blade icons manifest file generated successfully!
+✅ Laravel initialization complete!
+🎯 Ensuring supervisor log directory exists...
+📁 Ensuring nginx log directory exists...
+🎯 Starting services with supervisor...
+2026-01-29 08:20:37,016 INFO Set uid to user 0 succeeded
+2026-01-29 08:20:37,022 INFO RPC interface 'supervisor' initialized
+2026-01-29 08:20:37,022 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2026-01-29 08:20:37,022 INFO supervisord started with pid 1
+2026-01-29 08:20:38,025 INFO spawned: 'php-fpm' with pid 66
+2026-01-29 08:20:38,027 INFO spawned: 'nginx' with pid 67
+2026-01-29 08:20:38,030 INFO spawned: 'laravel-worker_00' with pid 68
+2026-01-29 08:20:38,032 INFO spawned: 'laravel-schedule' with pid 69
+2026-01-29 08:20:39,494 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:39,494 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:39,494 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:39,494 INFO success: laravel-schedule entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:39,494 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:39,494 INFO reaped unknown pid 71 (exit status 0)
+2026-01-29 08:20:40,496 INFO spawned: 'laravel-worker_00' with pid 88
+2026-01-29 08:20:40,790 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:41,792 INFO spawned: 'laravel-worker_00' with pid 99
+2026-01-29 08:20:42,153 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:44,157 INFO spawned: 'laravel-worker_00' with pid 103
+2026-01-29 08:20:45,452 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:45,452 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:46,454 INFO spawned: 'laravel-worker_00' with pid 107
+2026-01-29 08:20:46,746 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:47,748 INFO spawned: 'laravel-worker_00' with pid 111
+2026-01-29 08:20:49,050 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:49,050 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:50,053 INFO spawned: 'laravel-worker_00' with pid 115
+2026-01-29 08:20:51,340 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:51,340 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:52,342 INFO spawned: 'laravel-worker_00' with pid 119
+2026-01-29 08:20:53,639 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:53,639 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:54,641 INFO spawned: 'laravel-worker_00' with pid 123
+2026-01-29 08:20:55,942 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:55,942 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:56,944 INFO spawned: 'laravel-worker_00' with pid 127
+2026-01-29 08:20:58,289 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:20:58,289 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:20:59,291 INFO spawned: 'laravel-worker_00' with pid 131
+2026-01-29 08:20:59,592 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:00,595 INFO spawned: 'laravel-worker_00' with pid 135
+2026-01-29 08:21:01,912 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:01,912 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:02,914 INFO spawned: 'laravel-worker_00' with pid 139
+2026-01-29 08:21:03,223 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:04,226 INFO spawned: 'laravel-worker_00' with pid 143
+2026-01-29 08:21:05,535 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:05,535 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:06,537 INFO spawned: 'laravel-worker_00' with pid 147
+2026-01-29 08:21:06,845 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:07,847 INFO spawned: 'laravel-worker_00' with pid 151
+2026-01-29 08:21:09,146 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:09,146 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:10,068 INFO spawned: 'laravel-worker_00' with pid 155
+2026-01-29 08:21:11,391 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:11,391 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:12,253 INFO spawned: 'laravel-worker_00' with pid 166
+2026-01-29 08:21:13,596 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:13,596 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:14,598 INFO spawned: 'laravel-worker_00' with pid 170
+2026-01-29 08:21:15,896 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:15,896 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:16,599 INFO spawned: 'laravel-worker_00' with pid 174
+2026-01-29 08:21:17,921 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:17,921 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:18,924 INFO spawned: 'laravel-worker_00' with pid 178
+2026-01-29 08:21:19,240 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:20,242 INFO spawned: 'laravel-worker_00' with pid 182
+2026-01-29 08:21:20,557 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:22,561 INFO spawned: 'laravel-worker_00' with pid 186
+2026-01-29 08:21:23,866 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:23,866 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:24,868 INFO spawned: 'laravel-worker_00' with pid 190
+2026-01-29 08:21:26,155 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:26,155 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:27,157 INFO spawned: 'laravel-worker_00' with pid 194
+2026-01-29 08:21:27,466 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:28,468 INFO spawned: 'laravel-worker_00' with pid 198
+2026-01-29 08:21:29,791 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:29,791 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:30,793 INFO spawned: 'laravel-worker_00' with pid 202
+2026-01-29 08:21:31,096 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:32,098 INFO spawned: 'laravel-worker_00' with pid 206
+2026-01-29 08:21:33,406 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:33,406 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:34,408 INFO spawned: 'laravel-worker_00' with pid 210
+2026-01-29 08:21:35,704 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-01-29 08:21:35,704 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:36,706 INFO spawned: 'laravel-worker_00' with pid 214
+2026-01-29 08:21:37,013 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:38,015 INFO spawned: 'laravel-worker_00' with pid 218
+2026-01-29 08:21:38,376 WARN exited: laravel-worker_00 (exit status 1; not expected)
+2026-01-29 08:21:39,378 INFO reaped unknown pid 220 (exit status 0)
+2026-01-29 08:21:40,380 INFO spawned: 'laravel-worker_00' with pid 227
+2026-01-29 08:21:40,693 WARN exited: laravel-worker_00 (exit status 1; not expected)

@@ -29,8 +29,8 @@ services:
       - QUEUE_CONNECTION=redis
       - RUN_MIGRATIONS=${RUN_MIGRATIONS:-false}
     volumes:
-      - ${DATA_PATH:-./data}/storage:/var/www/html/storage
-      - ${DATA_PATH:-./data}/logs:/var/log
+      - ${DATA_PATH:-./data}/moportfolio/storage:/var/www/html/storage
+      - ${DATA_PATH:-./data}/moportfolio/logs:/var/log
     depends_on:
       database:
         condition: service_healthy
@@ -50,7 +50,7 @@ services:
       - MARIADB_USER=${DB_USERNAME:-mo_portfolio_user}
       - MARIADB_PASSWORD=${DB_PASSWORD:?DB_PASSWORD is required}
     volumes:
-      - ${DATA_PATH:-./data}/mysql:/var/lib/mysql
+      - ${DATA_PATH:-./data}/moportfolio/mysql:/var/lib/mysql
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 30s
@@ -67,7 +67,7 @@ services:
     container_name: moportfolio-redis
     command: redis-server --appendonly yes ${REDIS_PASSWORD:+--requirepass $REDIS_PASSWORD}
     volumes:
-      - ${DATA_PATH:-./data}/redis:/data
+      - ${DATA_PATH:-./data}/moportfolio/redis:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 30s
