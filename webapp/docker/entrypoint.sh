@@ -23,8 +23,12 @@ chmod -R 775 /var/www/html/bootstrap/cache
 # Create .env file from environment variables (not from .env.example)
 echo "📝 Creating .env file from environment variables..."
 
-# Print environment variables for debugging
-echo "🔧 Environment Variables:"
+# Print environment variables for debugging (raw values first)
+echo "🔧 Raw Environment Variables (before defaults):"
+echo "   APP_ENV='$APP_ENV'"
+echo "   APP_DEBUG='$APP_DEBUG'"
+echo ""
+echo "🔧 Environment Variables (with defaults):"
 echo "   APP_ENV=${APP_ENV:-production}"
 echo "   APP_KEY=${APP_KEY:-}"
 echo "   APP_DEBUG=${APP_DEBUG:-false}"
