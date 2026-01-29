@@ -1,28 +1,88 @@
+# Smart Meter Challenge - Development Environment
+# This docker-compose file runs both frontend and backend services
 version: "3.8"
 
 services:
-    moportfolio:
-        image: gheith3/moportfolio:latest
-        container_name: moportfolio
-        restart: unless-stopped
-        ports:
-            - "7085:80"
-        volumes:
-            - /apps/moportfolio/storage:/var/www/html/storage
-            - /apps/moportfolio/database.sqlite:/var/www/html/database/database.sqlite
-        environment:
-            - APP_NAME=Mo Portfolio
-            - APP_ENV=production
-            - APP_DEBUG=false
-            - APP_KEY=base64:7bXO9JdQek0klLQTUBXYT0zhwGJIf5YUYkc5bXeftQU=
-            - DB_CONNECTION=sqlite
-            - DB_DATABASE=/var/www/html/database/database.sqlite
-            - CACHE_DRIVER=file
-            - SESSION_DRIVER=file
-            - QUEUE_CONNECTION=sync
-        networks:
-            - moportfolio-network
+  # Laravel Backend
+  backend:
+    build:
+      context: ./webapp
+      dockerfile: Dockerfile
+    container_name: moportfolio-backend
+    ports:
+      - "5501:80"
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_URL=http://localhost:5501
+      - APP_KEY=base64:yVBQCGx6mzBXUNJmqbbxSIl/aZ+v1qzRYoOeb/m/ebw=
+      - DB_CONNECTION=mariadb
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_DATABASE=mo_portfolio
+      - DB_USERNAME=root
+      - DB_PASSWORD=password
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=
+      - REDIS_PORT=6379
+    volumes:
+      - ./webapp:/var/www/html
+      - ./webapp/storage:/var/www/html/storage
+      - backend_logs:/var/log
+    depends_on:
+      - database
+      - redis
+    restart: unless-stopped
+    networks:
+      - moportfolio-network
+
+  # MariaDB Database
+  database:
+    image: mariadb:10.11
+    environment:
+      - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_DATABASE=mo_portfolio
+      - MARIADB_USER=mo_portfolio_user
+      - MARIADB_PASSWORD=password
+    volumes:
+      - ./moportfolio/mysql_data:/var/lib/mysql
+      - ./moportfolio/database/docker-init:/docker-entrypoint-initdb.d
+    container_name: moportfolio-database
+    ports:
+      - "5507:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+    networks:
+      - moportfolio-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: moportfolio-redis
+    ports:
+      - "5579:6379"
+    volumes:
+      - ./moportfolio/redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - moportfolio-network
+
+volumes:
+  mysql_data:
+  redis_data:
+  backend_logs:
 
 networks:
-    moportfolio-network:
-        driver: bridge
+  moportfolio-network:
+    driver: bridge
