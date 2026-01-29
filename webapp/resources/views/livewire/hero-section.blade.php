@@ -10,7 +10,12 @@
                     <h1 class="cd-headline clip">
                         {{-- <span class="blc">{{ $profile->greeting ?? 'Hello, I am' }} </span> --}}
                         <span class="cd-words-wrapper">
-                            @if ($profile->animated_texts)
+                            <b class="is-visible">Developer</b>
+                            <b>Designer</b>
+                            <b>Creator</b>
+                            <b>AI Promoter</b>
+                            <b>Leader</b>
+                            {{-- @if ($profile->animated_texts)
                                 @foreach ($profile->animated_texts as $index => $text)
                                     <b class="{{ $index === 0 ? 'is-visible' : '' }}">{{ $text }}</b>
                                 @endforeach
@@ -20,7 +25,7 @@
                                 <b>Creator</b>
                                 <b>AI Promoter</b>
                                 <b>Leader</b>
-                            @endif
+                            @endif --}}
                         </span>
                     </h1>
 
