@@ -12,147 +12,148 @@ use Illuminate\Support\Carbon;
 
 final class BlogPostSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        // Get the first user (admin) and categories
-        $admin = User::first();
-        $webDevCategory = Category::where('slug', 'web-development')->first();
-        $designCategory = Category::where('slug', 'design')->first();
-        $techCategory = Category::where('slug', 'technology')->first();
+  /**
+   * Run the database seeds.
+   */
+  public function run(): void
+  {
+    // Get the first user (admin) and categories
+    $admin = User::first();
+    $webDevCategory = Category::where('slug', 'web-development')->first();
+    $designCategory = Category::where('slug', 'design')->first();
+    $techCategory = Category::where('slug', 'technology')->first();
 
-        $posts = [
-            [
-                'title' => 'Getting Started with Laravel 11: A Complete Guide',
-                'slug' => 'getting-started-with-laravel-11-complete-guide',
-                'excerpt' => 'Laravel 11 brings exciting new features and improvements. Learn how to set up your first Laravel 11 project and explore the latest enhancements.',
-                'content' => $this->getLaravelGuideContent(),
-                'category_id' => $webDevCategory?->id,
-                'meta_title' => 'Laravel 11 Complete Guide - Getting Started Tutorial',
-                'meta_description' => 'Learn Laravel 11 from scratch with our comprehensive guide. Discover new features, setup instructions, and best practices.',
-                'tags' => ['laravel', 'php', 'web-development', 'tutorial', 'framework'],
-                'is_published' => true,
-                'is_featured' => true,
-                'published_at' => Carbon::now()->subDays(2),
-            ],
-            [
-                'title' => 'Modern CSS Grid Layout: Building Responsive Designs',
-                'slug' => 'modern-css-grid-layout-responsive-designs',
-                'excerpt' => 'CSS Grid has revolutionized web layout design. Discover how to create complex, responsive layouts with ease using modern CSS Grid techniques.',
-                'content' => $this->getCSSGridContent(),
-                'category_id' => $designCategory?->id,
-                'meta_title' => 'CSS Grid Layout Tutorial - Responsive Web Design',
-                'meta_description' => 'Master CSS Grid layout for responsive web design. Learn grid properties, responsive techniques, and practical examples.',
-                'tags' => ['css', 'grid', 'responsive-design', 'web-design', 'frontend'],
-                'is_published' => true,
-                'is_featured' => true,
-                'published_at' => Carbon::now()->subDays(5),
-            ],
-            [
-                'title' => 'JavaScript ES2024 Features Every Developer Should Know',
-                'slug' => 'javascript-es2024-features-developers-should-know',
-                'excerpt' => 'ES2024 introduces powerful new features to JavaScript. Explore the latest additions that will enhance your development workflow.',
-                'content' => $this->getJavaScriptContent(),
-                'category_id' => $techCategory?->id,
-                'meta_title' => 'JavaScript ES2024 New Features Guide',
-                'meta_description' => 'Discover the latest JavaScript ES2024 features including new operators, array methods, and performance improvements.',
-                'tags' => ['javascript', 'es2024', 'frontend', 'programming', 'web-development'],
-                'is_published' => true,
-                'is_featured' => true,
-                'published_at' => Carbon::now()->subDays(7),
-            ],
-            [
-                'title' => 'Building RESTful APIs with Laravel: Best Practices',
-                'slug' => 'building-restful-apis-laravel-best-practices',
-                'excerpt' => 'Learn how to build robust, scalable RESTful APIs using Laravel. Cover authentication, validation, error handling, and API versioning.',
-                'content' => $this->getAPIContent(),
-                'category_id' => $webDevCategory?->id,
-                'meta_title' => 'Laravel REST API Development - Best Practices Guide',
-                'meta_description' => 'Build professional Laravel REST APIs with authentication, validation, and proper error handling. Complete guide with examples.',
-                'tags' => ['laravel', 'api', 'rest', 'backend', 'php', 'web-services'],
-                'is_published' => true,
-                'is_featured' => false,
-                'published_at' => Carbon::now()->subDays(10),
-            ],
-            [
-                'title' => 'Vue.js 3 Composition API: A Deep Dive',
-                'slug' => 'vuejs-3-composition-api-deep-dive',
-                'excerpt' => 'The Composition API in Vue.js 3 offers a new way to organize component logic. Learn when and how to use this powerful feature.',
-                'content' => $this->getVueContent(),
-                'category_id' => $techCategory?->id,
-                'meta_title' => 'Vue.js 3 Composition API Tutorial and Guide',
-                'meta_description' => 'Master Vue.js 3 Composition API with practical examples, best practices, and real-world use cases.',
-                'tags' => ['vuejs', 'composition-api', 'frontend', 'javascript', 'spa'],
-                'is_published' => true,
-                'is_featured' => false,
-                'published_at' => Carbon::now()->subDays(12),
-            ],
-            [
-                'title' => 'UI/UX Design Trends for 2024',
-                'slug' => 'ui-ux-design-trends-2024',
-                'excerpt' => 'Explore the latest UI/UX design trends shaping digital experiences in 2024. From minimalism to AI-powered interfaces.',
-                'content' => $this->getDesignTrendsContent(),
-                'category_id' => $designCategory?->id,
-                'meta_title' => '2024 UI/UX Design Trends - What\'s Hot This Year',
-                'meta_description' => 'Discover the top UI/UX design trends for 2024 including dark mode, minimalism, micro-interactions, and AI integration.',
-                'tags' => ['ui-design', 'ux-design', 'design-trends', 'user-interface', 'user-experience'],
-                'is_published' => true,
-                'is_featured' => false,
-                'published_at' => Carbon::now()->subDays(15),
-            ],
-            [
-                'title' => 'Docker for PHP Developers: Complete Setup Guide',
-                'slug' => 'docker-php-developers-complete-setup-guide',
-                'excerpt' => 'Containerize your PHP applications with Docker. Learn how to set up development environments, manage dependencies, and deploy efficiently.',
-                'content' => $this->getDockerContent(),
-                'category_id' => $techCategory?->id,
-                'meta_title' => 'Docker for PHP Development - Complete Setup Tutorial',
-                'meta_description' => 'Learn Docker for PHP development with Laravel, MySQL, and Redis. Complete guide with docker-compose examples.',
-                'tags' => ['docker', 'php', 'devops', 'containerization', 'laravel', 'development'],
-                'is_published' => true,
-                'is_featured' => false,
-                'published_at' => Carbon::now()->subDays(18),
-            ],
-            [
-                'title' => 'The Art of Code Reviews: Improving Team Collaboration',
-                'slug' => 'art-of-code-reviews-improving-team-collaboration',
-                'excerpt' => 'Effective code reviews are crucial for maintaining code quality and team growth. Learn best practices for conducting meaningful reviews.',
-                'content' => $this->getCodeReviewContent(),
-                'category_id' => $techCategory?->id,
-                'meta_title' => 'Code Review Best Practices - Team Collaboration Guide',
-                'meta_description' => 'Improve your team\'s code review process with these best practices for constructive feedback and better collaboration.',
-                'tags' => ['code-review', 'team-collaboration', 'software-development', 'best-practices', 'git'],
-                'is_published' => true,
-                'is_featured' => false,
-                'published_at' => Carbon::now()->subDays(20),
-            ],
-        ];
+    $posts = [
+      [
+        'title' => 'Getting Started with Laravel 11: A Complete Guide',
+        'slug' => 'getting-started-with-laravel-11-complete-guide',
+        'excerpt' => 'Laravel 11 brings exciting new features and improvements. Learn how to set up your first Laravel 11 project and explore the latest enhancements.',
+        'content' => $this->getLaravelGuideContent(),
+        'category_id' => $webDevCategory?->id,
+        'meta_title' => 'Laravel 11 Complete Guide - Getting Started Tutorial',
+        'meta_description' => 'Learn Laravel 11 from scratch with our comprehensive guide. Discover new features, setup instructions, and best practices.',
+        'tags' => ['laravel', 'php', 'web-development', 'tutorial', 'framework'],
+        'is_published' => true,
+        'is_featured' => true,
+        'published_at' => Carbon::now()->subDays(2),
+      ],
+      [
+        'title' => 'Modern CSS Grid Layout: Building Responsive Designs',
+        'slug' => 'modern-css-grid-layout-responsive-designs',
+        'excerpt' => 'CSS Grid has revolutionized web layout design. Discover how to create complex, responsive layouts with ease using modern CSS Grid techniques.',
+        'content' => $this->getCSSGridContent(),
+        'category_id' => $designCategory?->id,
+        'meta_title' => 'CSS Grid Layout Tutorial - Responsive Web Design',
+        'meta_description' => 'Master CSS Grid layout for responsive web design. Learn grid properties, responsive techniques, and practical examples.',
+        'tags' => ['css', 'grid', 'responsive-design', 'web-design', 'frontend'],
+        'is_published' => true,
+        'is_featured' => true,
+        'published_at' => Carbon::now()->subDays(5),
+      ],
+      [
+        'title' => 'JavaScript ES2024 Features Every Developer Should Know',
+        'slug' => 'javascript-es2024-features-developers-should-know',
+        'excerpt' => 'ES2024 introduces powerful new features to JavaScript. Explore the latest additions that will enhance your development workflow.',
+        'content' => $this->getJavaScriptContent(),
+        'category_id' => $techCategory?->id,
+        'meta_title' => 'JavaScript ES2024 New Features Guide',
+        'meta_description' => 'Discover the latest JavaScript ES2024 features including new operators, array methods, and performance improvements.',
+        'tags' => ['javascript', 'es2024', 'frontend', 'programming', 'web-development'],
+        'is_published' => true,
+        'is_featured' => true,
+        'published_at' => Carbon::now()->subDays(7),
+      ],
+      [
+        'title' => 'Building RESTful APIs with Laravel: Best Practices',
+        'slug' => 'building-restful-apis-laravel-best-practices',
+        'excerpt' => 'Learn how to build robust, scalable RESTful APIs using Laravel. Cover authentication, validation, error handling, and API versioning.',
+        'content' => $this->getAPIContent(),
+        'category_id' => $webDevCategory?->id,
+        'meta_title' => 'Laravel REST API Development - Best Practices Guide',
+        'meta_description' => 'Build professional Laravel REST APIs with authentication, validation, and proper error handling. Complete guide with examples.',
+        'tags' => ['laravel', 'api', 'rest', 'backend', 'php', 'web-services'],
+        'is_published' => true,
+        'is_featured' => false,
+        'published_at' => Carbon::now()->subDays(10),
+      ],
+      [
+        'title' => 'Vue.js 3 Composition API: A Deep Dive',
+        'slug' => 'vuejs-3-composition-api-deep-dive',
+        'excerpt' => 'The Composition API in Vue.js 3 offers a new way to organize component logic. Learn when and how to use this powerful feature.',
+        'content' => $this->getVueContent(),
+        'category_id' => $techCategory?->id,
+        'meta_title' => 'Vue.js 3 Composition API Tutorial and Guide',
+        'meta_description' => 'Master Vue.js 3 Composition API with practical examples, best practices, and real-world use cases.',
+        'tags' => ['vuejs', 'composition-api', 'frontend', 'javascript', 'spa'],
+        'is_published' => true,
+        'is_featured' => false,
+        'published_at' => Carbon::now()->subDays(12),
+      ],
+      [
+        'title' => 'UI/UX Design Trends for 2024',
+        'slug' => 'ui-ux-design-trends-2024',
+        'excerpt' => 'Explore the latest UI/UX design trends shaping digital experiences in 2024. From minimalism to AI-powered interfaces.',
+        'content' => $this->getDesignTrendsContent(),
+        'category_id' => $designCategory?->id,
+        'meta_title' => '2024 UI/UX Design Trends - What\'s Hot This Year',
+        'meta_description' => 'Discover the top UI/UX design trends for 2024 including dark mode, minimalism, micro-interactions, and AI integration.',
+        'tags' => ['ui-design', 'ux-design', 'design-trends', 'user-interface', 'user-experience'],
+        'is_published' => true,
+        'is_featured' => false,
+        'published_at' => Carbon::now()->subDays(15),
+      ],
+      [
+        'title' => 'Docker for PHP Developers: Complete Setup Guide',
+        'slug' => 'docker-php-developers-complete-setup-guide',
+        'excerpt' => 'Containerize your PHP applications with Docker. Learn how to set up development environments, manage dependencies, and deploy efficiently.',
+        'content' => $this->getDockerContent(),
+        'category_id' => $techCategory?->id,
+        'meta_title' => 'Docker for PHP Development - Complete Setup Tutorial',
+        'meta_description' => 'Learn Docker for PHP development with Laravel, MySQL, and Redis. Complete guide with docker-compose examples.',
+        'tags' => ['docker', 'php', 'devops', 'containerization', 'laravel', 'development'],
+        'is_published' => true,
+        'is_featured' => false,
+        'published_at' => Carbon::now()->subDays(18),
+      ],
+      [
+        'title' => 'The Art of Code Reviews: Improving Team Collaboration',
+        'slug' => 'art-of-code-reviews-improving-team-collaboration',
+        'excerpt' => 'Effective code reviews are crucial for maintaining code quality and team growth. Learn best practices for conducting meaningful reviews.',
+        'content' => $this->getCodeReviewContent(),
+        'category_id' => $techCategory?->id,
+        'meta_title' => 'Code Review Best Practices - Team Collaboration Guide',
+        'meta_description' => 'Improve your team\'s code review process with these best practices for constructive feedback and better collaboration.',
+        'tags' => ['code-review', 'team-collaboration', 'software-development', 'best-practices', 'git'],
+        'is_published' => true,
+        'is_featured' => false,
+        'published_at' => Carbon::now()->subDays(20),
+      ],
+    ];
 
-        foreach ($posts as $postData) {
-            BlogPost::create([
-                'user_id' => $admin?->id ?? 1,
-                'category_id' => $postData['category_id'] ?? null,
-                'title' => $postData['title'],
-                'slug' => $postData['slug'],
-                'excerpt' => $postData['excerpt'],
-                'content' => $postData['content'],
-                'meta_title' => $postData['meta_title'],
-                'meta_description' => $postData['meta_description'],
-                'tags' => $postData['tags'],
-                'is_published' => $postData['is_published'],
-                'is_featured' => $postData['is_featured'],
-                'published_at' => $postData['published_at'],
-                'created_at' => $postData['published_at'],
-                'updated_at' => $postData['published_at'],
-            ]);
-        }
+    foreach ($posts as $postData) {
+      BlogPost::firstOrCreate([
+        'slug' => $postData['slug'],
+        'category_id' => $postData['category_id'] ?? null,
+        'title' => $postData['title'],
+      ], [
+        'slug' => $postData['slug'],
+        'excerpt' => $postData['excerpt'],
+        'content' => $postData['content'],
+        'meta_title' => $postData['meta_title'],
+        'meta_description' => $postData['meta_description'],
+        'tags' => $postData['tags'],
+        'is_published' => $postData['is_published'],
+        'is_featured' => $postData['is_featured'],
+        'published_at' => $postData['published_at'],
+        'created_at' => $postData['published_at'],
+        'updated_at' => $postData['published_at'],
+      ]);
     }
+  }
 
-    private function getLaravelGuideContent(): string
-    {
-        return '<h2>Introduction to Laravel 11</h2>
+  private function getLaravelGuideContent(): string
+  {
+    return '<h2>Introduction to Laravel 11</h2>
         <p>Laravel 11 represents a significant milestone in the evolution of this beloved PHP framework. With its streamlined approach and powerful new features, Laravel 11 makes web development more efficient and enjoyable than ever before.</p>
         
         <h3>What\'s New in Laravel 11?</h3>
@@ -179,11 +180,11 @@ final class BlogPostSeeder extends Seeder
         
         <h3>Next Steps</h3>
         <p>Now that you have Laravel 11 installed, explore the documentation and start building amazing applications. The Laravel ecosystem continues to grow with tools like Livewire, Inertia.js, and Laravel Nova.</p>';
-    }
+  }
 
-    private function getCSSGridContent(): string
-    {
-        return '<h2>Understanding CSS Grid Layout</h2>
+  private function getCSSGridContent(): string
+  {
+    return '<h2>Understanding CSS Grid Layout</h2>
         <p>CSS Grid Layout is a two-dimensional layout system for the web. It lets you lay content out in rows and columns, and has many features that make building complex layouts straightforward.</p>
         
         <h3>Grid vs Flexbox</h3>
@@ -217,11 +218,11 @@ final class BlogPostSeeder extends Seeder
         </blockquote>
         
         <p>Start experimenting with CSS Grid in your next project. It will change how you approach web layout design forever.</p>';
-    }
+  }
 
-    private function getJavaScriptContent(): string
-    {
-        return '<h2>JavaScript ES2024: The Latest Features</h2>
+  private function getJavaScriptContent(): string
+  {
+    return '<h2>JavaScript ES2024: The Latest Features</h2>
         <p>ES2024 continues JavaScript\'s evolution with features that improve developer productivity and code performance. Let\'s explore the most important additions.</p>
         
         <h3>Array Grouping Methods</h3>
@@ -261,11 +262,11 @@ const future = now.add({ days: 7, hours: 3 });</code></pre>
         </blockquote>
         
         <p>Stay updated with JavaScript\'s evolution and start experimenting with these features in your projects today!</p>';
-    }
+  }
 
-    private function getAPIContent(): string
-    {
-        return '<h2>Building Professional RESTful APIs with Laravel</h2>
+  private function getAPIContent(): string
+  {
+    return '<h2>Building Professional RESTful APIs with Laravel</h2>
         <p>RESTful APIs are the backbone of modern web applications. Laravel provides excellent tools for building robust, scalable APIs that follow best practices.</p>
         
         <h3>API Routes and Structure</h3>
@@ -323,11 +324,11 @@ Route::middleware("auth:sanctum")->group(function () {
         <blockquote>
         <p>"A well-designed API is intuitive, consistent, and makes developers happy to work with it."</p>
         </blockquote>';
-    }
+  }
 
-    private function getVueContent(): string
-    {
-        return '<h2>Mastering Vue.js 3 Composition API</h2>
+  private function getVueContent(): string
+  {
+    return '<h2>Mastering Vue.js 3 Composition API</h2>
         <p>The Composition API is Vue 3\'s answer to complex component logic organization. It provides a more flexible and powerful way to build components.</p>
         
         <h3>Why Composition API?</h3>
@@ -409,11 +410,11 @@ export function useCounter(initialValue = 0) {
         </blockquote>
         
         <p>Start incorporating the Composition API into your Vue.js projects for better code organization and reusability.</p>';
-    }
+  }
 
-    private function getDesignTrendsContent(): string
-    {
-        return '<h2>UI/UX Design Trends Shaping 2024</h2>
+  private function getDesignTrendsContent(): string
+  {
+    return '<h2>UI/UX Design Trends Shaping 2024</h2>
         <p>As we navigate through 2024, design trends continue to evolve, influenced by technology advances, user behavior changes, and cultural shifts. Here are the key trends defining this year.</p>
         
         <h3>1. AI-Powered Personalization</h3>
@@ -470,11 +471,11 @@ export function useCounter(initialValue = 0) {
         </ul>
         
         <p>Remember, trends should enhance user experience, not overshadow functionality. The best designs seamlessly blend innovation with usability.</p>';
-    }
+  }
 
-    private function getDockerContent(): string
-    {
-        return '<h2>Docker for PHP Development: Complete Setup</h2>
+  private function getDockerContent(): string
+  {
+    return '<h2>Docker for PHP Development: Complete Setup</h2>
         <p>Docker has revolutionized how we develop and deploy applications. For PHP developers, Docker offers consistent environments, easy dependency management, and simplified deployments.</p>
         
         <h3>Why Docker for PHP?</h3>
@@ -585,11 +586,11 @@ docker-compose exec app php artisan test</code></pre>
         </blockquote>
         
         <p>Start small with Docker in development, then gradually move to containerized production deployments as you become more comfortable with the technology.</p>';
-    }
+  }
 
-    private function getCodeReviewContent(): string
-    {
-        return '<h2>The Art of Effective Code Reviews</h2>
+  private function getCodeReviewContent(): string
+  {
+    return '<h2>The Art of Effective Code Reviews</h2>
         <p>Code reviews are one of the most valuable practices in software development. They improve code quality, share knowledge, and strengthen team collaboration when done effectively.</p>
         
         <h3>Benefits of Code Reviews</h3>
@@ -675,5 +676,5 @@ Implements user authentication using JWT tokens
         </ul>
         
         <p>Remember, the goal is to ship better code while helping each other grow as developers. Great code reviews create a positive, learning-focused culture that benefits everyone.</p>';
-    }
+  }
 }

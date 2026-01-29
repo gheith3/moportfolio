@@ -22,6 +22,26 @@ chmod -R 775 /var/www/html/bootstrap/cache
 
 # Create .env file from environment variables (not from .env.example)
 echo "📝 Creating .env file from environment variables..."
+
+# Print environment variables for debugging
+echo "🔧 Environment Variables:"
+echo "   APP_ENV=${APP_ENV:-production}"
+echo "   APP_KEY=${APP_KEY:-}"
+echo "   APP_DEBUG=${APP_DEBUG:-false}"
+echo "   APP_URL=${APP_URL:-http://localhost}"
+echo "   DB_CONNECTION=${DB_CONNECTION:-mariadb}"
+echo "   DB_HOST=${DB_HOST:-database}"
+echo "   DB_PORT=${DB_PORT:-3306}"
+echo "   DB_DATABASE=${DB_DATABASE:-mo_portfolio}"
+echo "   DB_USERNAME=${DB_USERNAME:-mo_portfolio_user}"
+echo "   DB_PASSWORD=****"
+echo "   SESSION_DRIVER=${SESSION_DRIVER:-redis}"
+echo "   CACHE_STORE=${CACHE_STORE:-redis}"
+echo "   QUEUE_CONNECTION=${QUEUE_CONNECTION:-redis}"
+echo "   REDIS_HOST=${REDIS_HOST:-redis}"
+echo "   REDIS_PASSWORD=****"
+echo "   REDIS_PORT=${REDIS_PORT:-6379}"
+echo "   RUN_MIGRATIONS=${RUN_MIGRATIONS:-false}"
 cat > /var/www/html/.env << EOF
 APP_NAME="Mo Portfolio"
 APP_ENV=${APP_ENV:-production}
