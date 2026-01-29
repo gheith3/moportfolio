@@ -96,9 +96,9 @@ RUN chown -R www-data:www-data /var/www/html \
 # Expose port 80
 EXPOSE 80
 
-# Add health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-    CMD curl -f http://localhost/api/health || exit 1
+# Add health check - check if nginx is responding
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
+    CMD curl -f http://localhost/ || exit 1
 
 # Use entrypoint script to initialize Laravel properly
 ENTRYPOINT ["/entrypoint.sh"] 
