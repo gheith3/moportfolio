@@ -57,7 +57,7 @@ class AdminPanelProvider extends PanelProvider
                     ->shouldShowSanctumTokens(false)
                     ->shouldShowBrowserSessionsForm(true)
                     ->shouldShowAvatarForm(false)
-                    ->shouldShowEditPasswordForm(false),
+                    ->shouldShowEditPasswordForm(true),
             ])
             ->userMenuItems([
                 'profile' => MenuItem::make()
