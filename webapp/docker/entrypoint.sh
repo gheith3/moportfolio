@@ -132,6 +132,7 @@ php artisan view:clear
 php artisan cache:clear
 
 # Cache for production
+php artisan livewire:discover
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
