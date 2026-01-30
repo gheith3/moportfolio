@@ -26,6 +26,10 @@ final class ServiceSeeder extends Seeder
      */
     public function run(): void
     {
+        if (Service::query()->exists()) {
+            return;
+        }
+
         $services = [
             [
                 'title' => 'Web Development',

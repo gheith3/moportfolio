@@ -15,6 +15,9 @@ final class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
+        if(User::query()->exists()){
+            return;
+        }
         User::firstOrCreate(
             ['email' => 'admin@admin.com'],
             [

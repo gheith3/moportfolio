@@ -15,6 +15,10 @@ final class ProfileSeeder extends Seeder
      */
     public function run(): void
     {
+        if (Profile::query()->exists()) {
+            return;
+        }
+
         $admin = User::where('email', 'admin@admin.com')->first();
 
         if ($admin) {

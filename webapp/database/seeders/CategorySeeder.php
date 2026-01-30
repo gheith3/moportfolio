@@ -15,6 +15,9 @@ final class CategorySeeder extends Seeder
      */
     public function run(): void
     {
+        if (Category::query()->exists()) {
+            return;
+        }
         $categories = [
             // Portfolio Categories
             [

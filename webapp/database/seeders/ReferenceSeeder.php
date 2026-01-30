@@ -14,6 +14,10 @@ final class ReferenceSeeder extends Seeder
      */
     public function run(): void
     {
+        if (Reference::query()->exists()) {
+            return;
+        }
+
         $references = [
             [
                 'name' => 'Sarah Johnson',

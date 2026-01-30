@@ -15,6 +15,9 @@ final class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
+        if (Project::query()->exists()) {
+            return;
+        }
         $projects = [
             [
                 'title' => 'E-commerce Platform',

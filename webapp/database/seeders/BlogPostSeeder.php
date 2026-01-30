@@ -17,6 +17,10 @@ final class BlogPostSeeder extends Seeder
    */
   public function run(): void
   {
+    if (BlogPost::query()->exists()) {
+      return;
+    }
+
     // Get the first user (admin) and categories
     $admin = User::first();
     $webDevCategory = Category::where('slug', 'web-development')->first();

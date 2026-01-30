@@ -15,6 +15,9 @@ final class SkillSeeder extends Seeder
      */
     public function run(): void
     {
+        if (Skill::query()->exists()) {
+            return;
+        }
         $profile = Profile::first();
 
         if ($profile) {
