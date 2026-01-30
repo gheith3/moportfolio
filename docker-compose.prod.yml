@@ -4,9 +4,7 @@
 services:
   # Laravel Backend
   backend:
-    build:
-      context: ./webapp
-      dockerfile: Dockerfile
+    image: ghcr.io/gheith3/moportfolio-backend:latest
     container_name: mo-backend
     ports:
       - "${APP_PORT:-8900}:80"
