@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Laravel Docker Entrypoint Script
+# Laravel Docker Entrypoint Script v2
 echo "🚀 Starting Mo Portfolio Backend..."
 
 # Create storage directories FIRST (required for artisan commands)
