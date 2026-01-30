@@ -29,7 +29,7 @@ services:
       - QUEUE_CONNECTION=redis
       - RUN_MIGRATIONS=${RUN_MIGRATIONS:-false}
     volumes:
-      - ${DATA_PATH:-./data}/moportfolio/storage:/var/www/html/storage
+      - moportfolio-storage:/var/www/html/storage
       - ${DATA_PATH:-./data}/moportfolio/logs:/var/log
     depends_on:
       database:
@@ -81,3 +81,7 @@ services:
 networks:
   moportfolio-network:
     driver: bridge
+
+volumes:
+  moportfolio-storage:
+    driver: local
