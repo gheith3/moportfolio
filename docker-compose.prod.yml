@@ -50,7 +50,7 @@ services:
       - MARIADB_USER=${DB_USERNAME:-mo_portfolio_user}
       - MARIADB_PASSWORD=${DB_PASSWORD:?DB_PASSWORD is required}
     volumes:
-      - ${DATA_PATH:-./data}/moportfolio/mysql:/var/lib/mysql
+      - moportfolio-mysql:/var/lib/mysql
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 30s
@@ -84,4 +84,6 @@ networks:
 
 volumes:
   moportfolio-storage:
+    driver: local
+  moportfolio-mysql:
     driver: local
