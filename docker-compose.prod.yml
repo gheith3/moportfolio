@@ -7,7 +7,7 @@ services:
     build:
       context: ./webapp
       dockerfile: Dockerfile
-    container_name: moportfolio-backend
+    container_name: mo-backend
     ports:
       - "${APP_PORT:-8900}:80"
     environment:
@@ -43,7 +43,7 @@ services:
   # MariaDB Database
   database:
     image: mariadb:10.11
-    container_name: moportfolio-database
+    container_name: mo-database
     environment:
       - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD:?DB_ROOT_PASSWORD is required}
       - MARIADB_DATABASE=${DB_DATABASE:-mo_portfolio}
@@ -64,7 +64,7 @@ services:
   # Redis Cache
   redis:
     image: redis:7-alpine
-    container_name: moportfolio-redis
+    container_name: mo-redis
     command: redis-server --appendonly yes ${REDIS_PASSWORD:+--requirepass $REDIS_PASSWORD}
     volumes:
       - ${DATA_PATH:-./data}/moportfolio/redis:/data
